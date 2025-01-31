@@ -1,0 +1,14 @@
+# ninja log v6
+3	775	1738230108049687978	CMakeFiles/FiniteStateAutomaton.dir/src/utils.cpp.o	7b4002fb977b9404
+4	624	1738229978381377142	CMakeFiles/FiniteStateAutomaton.dir/src/Transition.cpp.o	94d1e8161d832659
+2	693	1738230338919544610	CMakeFiles/FiniteStateAutomaton.dir/src/FiniteStateAutomaton.cpp.o	8cc68bc3ec4fa9a6
+6	751	1738229473006359551	CMakeFiles/Implimentations.dir/src/TransitionTable.cpp.o	51ab4fb9b43347a4
+7	873	1738229473007359480	CMakeFiles/Implimentations.dir/src/utils.cpp.o	5f6dade214dfb3f2
+5	607	1738229473005359623	CMakeFiles/Implimentations.dir/src/State.cpp.o	edcdd7a4113ad3c9
+5	527	1738229473006359551	CMakeFiles/Implimentations.dir/src/Transition.cpp.o	75096263bd1e6d1d
+693	787	1738230339610593553	FiniteStateAutomaton	cadbc0b1e274dd53
+2	486	1738329930693199089	build.ninja	ea0a4b2810d4b83d
+4	503	1738229499311428162	CMakeFiles/Implimentations.dir/main.cpp.o	3e4b1589ba66e496
+4	604	1738229978381377142	CMakeFiles/FiniteStateAutomaton.dir/src/State.cpp.o	1499994ab73b465b
+3	687	1738230108049687978	CMakeFiles/FiniteStateAutomaton.dir/src/TransitionTable.cpp.o	a76cf6b25fa51c18
+2	576	1738230108048688006	CMakeFiles/FiniteStateAutomaton.dir/main.cpp.o	14725e14249d0911
