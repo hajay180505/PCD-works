@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include <iostream>
 
-std::vector<State> Utils::epsilonClosure(std::vector<State> T, TransitionTable transitionTable) {
+std::vector<State> Utils::epsilonClosure(std::vector<State> T, TransitionTable transitionTable, std::string epsilon ) {
     std::stack<State> stackOfStates;
     for (const auto &state: T) {
         stackOfStates.push(state);
@@ -19,7 +19,7 @@ std::vector<State> Utils::epsilonClosure(std::vector<State> T, TransitionTable t
     while (!stackOfStates.empty()) {
         auto s = stackOfStates.top();
         stackOfStates.pop();
-        auto curr = transitionTable.getEndStates(s, "epsilon");
+        auto curr = transitionTable.getEndStates(s, epsilon);
         for (const auto &state: curr) {
             if (std::find(ans.begin(), ans.end(), state) == ans.end()) {
                 stackOfStates.push(state);

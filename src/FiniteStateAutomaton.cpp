@@ -89,16 +89,16 @@ FiniteStateAutomaton FiniteStateAutomaton::getSimpleFSA() {
     // add transitions to transition table
 
     TransitionTable transitionTable;
-    transitionTable.addTransition(Transition(A, B, "epsilon"));
-    transitionTable.addTransition(Transition(B, C, "epsilon"));
-    transitionTable.addTransition(Transition(B, E, "epsilon"));
-    transitionTable.addTransition(Transition(A, H, "epsilon"));
+    transitionTable.addTransition(Transition(A, B, "ε"));
+    transitionTable.addTransition(Transition(B, C, "ε"));
+    transitionTable.addTransition(Transition(B, E, "ε"));
+    transitionTable.addTransition(Transition(A, H, "ε"));
     transitionTable.addTransition(Transition(C, D, "a"));
     transitionTable.addTransition(Transition(E, F, "b"));
-    transitionTable.addTransition(Transition(D, G, "epsilon"));
-    transitionTable.addTransition(Transition(F, G, "epsilon"));
-    transitionTable.addTransition(Transition(G, B, "epsilon"));
-    transitionTable.addTransition(Transition(G, H, "epsilon"));
+    transitionTable.addTransition(Transition(D, G, "ε"));
+    transitionTable.addTransition(Transition(F, G, "ε"));
+    transitionTable.addTransition(Transition(G, B, "ε"));
+    transitionTable.addTransition(Transition(G, H, "ε"));
     transitionTable.addTransition(Transition(H, I, "a"));
     transitionTable.addTransition(Transition(I, J, "b"));
     transitionTable.addTransition(Transition(J, K, "b"));

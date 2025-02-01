@@ -7,7 +7,7 @@
 
 class Utils {
 public:
-    static std::vector<State> epsilonClosure(std::vector<State>, TransitionTable);
+    static std::vector<State> epsilonClosure(std::vector<State>, TransitionTable, std::string epsilon="ε");
 
     static State getStartState(const TransitionTable &);
 
