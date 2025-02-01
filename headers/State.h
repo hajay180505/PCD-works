@@ -24,7 +24,7 @@ public:
 
     void setStart(bool isFinal);
 
-    bool operator==(State other);
+    bool operator==(const State& other);
 
     friend std::ostream &operator<<(std::ostream &os, const State &state);
 };

@@ -1,16 +1,18 @@
 #include "State.h"
 
-State::State(std::string name, bool isFinal, bool isStart) : name(name), final(isFinal), start(isStart) {}
+#include <utility>
+
+State::State(std::string name, bool isFinal, bool isStart) : name(std::move(name)), final(isFinal), start(isStart) {}
 
 std::string State::getName() const {
     return name;
 }
 
 void State::setName(std::string name) {
-    this->name = name;
+    this->name = std::move(name);
 }
 
-bool State::operator==(State other) {
+bool State::operator==(const State& other) {
     return (other.name == name) &&
            (other.final == final) &&
            (other.start == start);

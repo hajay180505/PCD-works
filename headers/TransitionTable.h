@@ -13,11 +13,11 @@ public:
 
     bool addTransition(const Transition &transition);
 
-    std::vector<Transition> getTransitionsFromStart(State start);
+    std::vector<Transition> getTransitionsFromStart(const State& start);
 
-    std::vector<State> getEndStates(State start, std::string symbol) const;
+    std::vector<State> getEndStates(const State& start, const std::string& symbol) const;
 
-    std::vector<Transition> getTransitionsFromSymbol(std::string symbol);
+    std::vector<Transition> getTransitionsFromSymbol(const std::string& symbol);
 
     const std::vector<Transition> &getTransitions() const;
 

@@ -1,4 +1,3 @@
-
 #include "FiniteStateAutomaton.h"
 #include <iostream>
 #include "utils.h"
@@ -47,16 +46,16 @@ std::ostream &operator<<(std::ostream &os, const FiniteStateAutomaton &fsa) {
     os << "Name : " << fsa.getName() << std::endl;
     os << "Type : " << (fsa.isNondeterministic() ? "NFA" : "DFA") << std::endl;
     os << "States :";
-    for (auto state: fsa.getStates()) {
+    for (const auto& state: fsa.getStates()) {
         os << state.getName() << " ";
     }
     os << std::endl << "Start state : " << fsa.getStartState().getName() << std::endl;
     os << "Final states : ";
-    for (auto state: fsa.getFinalState()) {
+    for (const auto& state: fsa.getFinalState()) {
         os << state.getName() << " " << std::endl;
     }
     os << std::endl << "Transitions :" << std::endl;
-    for (auto transition: fsa.getTransitionTable().getTransitions()) {
+    for (const auto& transition: fsa.getTransitionTable().getTransitions()) {
         os << transition << std::endl;
     }
 

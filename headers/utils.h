@@ -7,9 +7,9 @@
 
 class Utils {
 public:
-    static std::vector<State> epsilonClosure(std::vector<State>, TransitionTable, std::string epsilon = EPSILON);
+    static std::vector<State> epsilonClosure(const std::vector<State>&, const TransitionTable&, const std::string& epsilon = EPSILON);
 
-    static std::vector<State> epsilonClosure(State, TransitionTable, std::string epsilon = EPSILON);
+    static std::vector<State> epsilonClosure(const State&, const TransitionTable&, const std::string& epsilon = EPSILON);
 
     static State getStartState(const TransitionTable &);
 
@@ -19,6 +19,6 @@ public:
 
     static std::vector<std::string> getSymbols(const TransitionTable &);
 
-    static std::optional<State> getStateByName(std::vector<State>, std::string);
+    static std::optional<State> getStateByName(const std::vector<State>&, std::string);
 
 };

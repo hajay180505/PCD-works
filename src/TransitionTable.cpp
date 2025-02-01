@@ -1,5 +1,7 @@
 #include "TransitionTable.h"
 
+#include <utility>
+
 bool TransitionTable::addTransition(const Transition &transition) {
     if (std::find(transitions.begin(), transitions.end(), transition) == transitions.end()) {
         transitions.push_back(transition);
@@ -8,7 +10,7 @@ bool TransitionTable::addTransition(const Transition &transition) {
     return false;
 }
 
-std::vector<Transition> TransitionTable::getTransitionsFromStart(State start) {
+std::vector<Transition> TransitionTable::getTransitionsFromStart(const State& start) {
     std::vector<Transition> ans;
     for (auto transition: transitions) {
         if (transition.getStartState() == start) {
@@ -18,7 +20,7 @@ std::vector<Transition> TransitionTable::getTransitionsFromStart(State start) {
     return ans;
 }
 
-std::vector<State> TransitionTable::getEndStates(State start, std::string symbol) const {
+std::vector<State> TransitionTable::getEndStates(const State& start, const std::string& symbol) const {
     std::vector<State> ans;
     for (auto transition: transitions) {
         if (transition.getStartState() == start && transition.getSymbol() == symbol) {
@@ -29,7 +31,7 @@ std::vector<State> TransitionTable::getEndStates(State start, std::string symbol
 
 }
 
-std::vector<Transition> TransitionTable::getTransitionsFromSymbol(std::string symbol) {
+std::vector<Transition> TransitionTable::getTransitionsFromSymbol(const std::string& symbol) {
     std::vector<Transition> ans;
     for (auto transition: transitions) {
         if (transition.getSymbol() == symbol) {
@@ -40,7 +42,7 @@ std::vector<Transition> TransitionTable::getTransitionsFromSymbol(std::string sy
 }
 
 TransitionTable::TransitionTable(std::vector<Transition> transitions) {
-    this->transitions = transitions;
+    this->transitions = std::move(transitions);
 }
 
 

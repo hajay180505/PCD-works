@@ -18,15 +18,15 @@ std::string Transition::getSymbol() {
 }
 
 void Transition::setStartState(State state) {
-    start = state;
+    start = std::move(state);
 }
 
 void Transition::setEndState(State state) {
-    end = state;
+    end = std::move(state);
 }
 
 void Transition::setSymbol(std::string symbol) {
-    this->symbol = symbol;
+    this->symbol = std::move(symbol);
 }
 
 bool Transition::operator==(Transition other) {

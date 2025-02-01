@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include <iostream>
 
-std::vector<State> Utils::epsilonClosure(std::vector<State> T, TransitionTable transitionTable, std::string epsilon ) {
+std::vector<State> Utils::epsilonClosure(const std::vector<State>& T, const TransitionTable& transitionTable, const std::string& epsilon ) {
     std::stack<State> stackOfStates;
     for (const auto &state: T) {
         stackOfStates.push(state);
@@ -75,14 +75,14 @@ std::vector<std::string> Utils::getSymbols(const TransitionTable &transitionTabl
     return ans;
 }
 
-std::optional<State> Utils::getStateByName(std::vector<State> states, std::string name) {
+std::optional<State> Utils::getStateByName(const std::vector<State>& states, std::string name) {
     for (auto state: states) {
         if (state.getName() == name) return state;
     }
     return {};
 }
 
-std::vector<State> Utils::epsilonClosure(State T, TransitionTable transitionTable, std::string epsilon) {
+std::vector<State> Utils::epsilonClosure(const State& T, const TransitionTable& transitionTable, const std::string& epsilon) {
     std::stack<State> stackOfStates;
     stackOfStates.push(T);
 
