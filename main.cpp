@@ -15,6 +15,8 @@ int main() {
     for (const auto &state: Utils::epsilonClosure(s, fsa.getTransitionTable())) {
         cout << state << " ";
     }
+
     cout << endl;
+
 }
     

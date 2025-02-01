@@ -30,6 +30,8 @@ public:
 
     const std::vector<State> &getFinalState() const;
 
+    bool isNondeterministic() const;
+
     void setTransitionTable(const TransitionTable &);
 
     void setName(const std::string &name);
@@ -37,5 +39,7 @@ public:
     friend std::ostream &operator<<(std::ostream &, const FiniteStateAutomaton &);
 
     static FiniteStateAutomaton getSimpleFSA();
+
+
 };
 

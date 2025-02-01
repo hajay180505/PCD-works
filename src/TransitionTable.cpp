@@ -18,7 +18,7 @@ std::vector<Transition> TransitionTable::getTransitionsFromStart(State start) {
     return ans;
 }
 
-std::vector<State> TransitionTable::getEndStates(State start, std::string symbol) {
+std::vector<State> TransitionTable::getEndStates(State start, std::string symbol) const {
     std::vector<State> ans;
     for (auto transition: transitions) {
         if (transition.getStartState() == start && transition.getSymbol() == symbol) {

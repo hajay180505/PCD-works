@@ -82,3 +82,24 @@ std::optional<State> Utils::getStateByName(std::vector<State> states, std::strin
     return {};
 }
 
+std::vector<State> Utils::epsilonClosure(State T, TransitionTable transitionTable, std::string epsilon) {
+    std::stack<State> stackOfStates;
+    stackOfStates.push(T);
+
+    std::vector<State> ans;
+    ans.push_back(T);
+
+    while (!stackOfStates.empty()) {
+        auto s = stackOfStates.top();
+        stackOfStates.pop();
+        auto curr = transitionTable.getEndStates(s, epsilon);
+        for (const auto &state: curr) {
+            if (std::find(ans.begin(), ans.end(), state) == ans.end()) {
+                stackOfStates.push(state);
+                ans.push_back(state);
+            }
+        }
+    }
+    return ans;
+}
+

@@ -4,6 +4,8 @@
 #include <algorithm>
 #include <ostream>
 
+const std::string EPSILON = "ε";
+
 class Transition {
     State start;
     State end;

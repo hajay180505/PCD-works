@@ -45,6 +45,7 @@ const std::vector<State> &FiniteStateAutomaton::getFinalState() const {
 
 std::ostream &operator<<(std::ostream &os, const FiniteStateAutomaton &fsa) {
     os << "Name : " << fsa.getName() << std::endl;
+    os << "Type : " << (fsa.isNondeterministic() ? "NFA" : "DFA") << std::endl;
     os << "States :";
     for (auto state: fsa.getStates()) {
         os << state.getName() << " ";
@@ -89,16 +90,16 @@ FiniteStateAutomaton FiniteStateAutomaton::getSimpleFSA() {
     // add transitions to transition table
 
     TransitionTable transitionTable;
-    transitionTable.addTransition(Transition(A, B, "ε"));
-    transitionTable.addTransition(Transition(B, C, "ε"));
-    transitionTable.addTransition(Transition(B, E, "ε"));
-    transitionTable.addTransition(Transition(A, H, "ε"));
+    transitionTable.addTransition(Transition(A, B, EPSILON));
+    transitionTable.addTransition(Transition(B, C, EPSILON));
+    transitionTable.addTransition(Transition(B, E, EPSILON));
+    transitionTable.addTransition(Transition(A, H, EPSILON));
     transitionTable.addTransition(Transition(C, D, "a"));
     transitionTable.addTransition(Transition(E, F, "b"));
-    transitionTable.addTransition(Transition(D, G, "ε"));
-    transitionTable.addTransition(Transition(F, G, "ε"));
-    transitionTable.addTransition(Transition(G, B, "ε"));
-    transitionTable.addTransition(Transition(G, H, "ε"));
+    transitionTable.addTransition(Transition(D, G, EPSILON));
+    transitionTable.addTransition(Transition(F, G, EPSILON));
+    transitionTable.addTransition(Transition(G, B, EPSILON));
+    transitionTable.addTransition(Transition(G, H, EPSILON));
     transitionTable.addTransition(Transition(H, I, "a"));
     transitionTable.addTransition(Transition(I, J, "b"));
     transitionTable.addTransition(Transition(J, K, "b"));
@@ -106,5 +107,19 @@ FiniteStateAutomaton FiniteStateAutomaton::getSimpleFSA() {
     FiniteStateAutomaton fsa = FiniteStateAutomaton(transitionTable, "M");
     return fsa;
 
+}
+
+bool FiniteStateAutomaton::isNondeterministic() const {
+    for (auto transition : transitionTable.getTransitions()){
+        if(transition.getSymbol() == EPSILON) return true;
+    }
+
+    for (auto transition : transitionTable.getTransitions()){
+        auto state = transition.getStartState();
+        if( transitionTable.getEndStates(state, transition.getSymbol()).size() > 1){
+            return true;
+        }
+    }
+    return false;
 }
 

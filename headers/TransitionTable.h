@@ -15,11 +15,12 @@ public:
 
     std::vector<Transition> getTransitionsFromStart(State start);
 
-    std::vector<State> getEndStates(State start, std::string symbol);
+    std::vector<State> getEndStates(State start, std::string symbol) const;
 
     std::vector<Transition> getTransitionsFromSymbol(std::string symbol);
 
     const std::vector<Transition> &getTransitions() const;
+
 
     friend std::ostream &operator<<(std::ostream &os, const TransitionTable &table);
 };
