@@ -1,25 +1,32 @@
 #include "Transition.h"
 
+#include <utility>
+
 Transition::Transition(State start, State end, std::string symbol)
-    : start(start), end(end), symbol(symbol) {}
+        : start(std::move(start)), end(std::move(end)), symbol(std::move(symbol)) {}
 
 State Transition::getStartState() {
-  return start;
+    return start;
 }
+
 State Transition::getEndState() {
-  return end;
- }
+    return end;
+}
+
 std::string Transition::getSymbol() {
-  return symbol;
- }
-void Transition::setStartState(State state){
-  start = state;
+    return symbol;
 }
-void Transition::setEndState(State state){
-  end = state;
+
+void Transition::setStartState(State state) {
+    start = state;
 }
-void Transition::setSymbol(std::string symbol){
-  this->symbol = symbol;
+
+void Transition::setEndState(State state) {
+    end = state;
+}
+
+void Transition::setSymbol(std::string symbol) {
+    this->symbol = symbol;
 }
 
 bool Transition::operator==(Transition other) {

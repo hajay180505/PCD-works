@@ -1,7 +1,7 @@
 #include "TransitionTable.h"
 
 bool TransitionTable::addTransition(const Transition &transition) {
-    if (std::find(transitions.begin(), transitions.end(), transition) != transitions.end()) {
+    if (std::find(transitions.begin(), transitions.end(), transition) == transitions.end()) {
         transitions.push_back(transition);
         return true;
     }
@@ -52,8 +52,8 @@ const std::vector<Transition> &TransitionTable::getTransitions() const {
 }
 
 std::ostream &operator<<(std::ostream &os, const TransitionTable &table) {
-    os << "Transitions: " ;
-    for (const auto& transition : table.transitions){
+    os << "Transitions: ";
+    for (const auto &transition: table.transitions) {
         os << transition << std::endl;
     }
     return os;

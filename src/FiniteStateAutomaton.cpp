@@ -3,14 +3,14 @@
 #include <iostream>
 #include "utils.h"
 
-FiniteStateAutomaton::FiniteStateAutomaton(const TransitionTable &transitionTable, const std::string& name) {
-    std::cout << "Here" ;
+FiniteStateAutomaton::FiniteStateAutomaton(const TransitionTable &transitionTable, const std::string &name) {
     this->name = name;
     this->finalState = Utils::getFinalState(transitionTable);
     this->startState = Utils::getStartState(transitionTable);
     this->states = Utils::getStates(transitionTable);
     this->transitionTable = transitionTable;
     this->symbols = Utils::getSymbols(transitionTable);
+
 }
 
 const std::vector<State> &FiniteStateAutomaton::getStates() const {
@@ -43,23 +43,22 @@ const std::vector<State> &FiniteStateAutomaton::getFinalState() const {
     return finalState;
 }
 
-std::ostream &operator<<(std::ostream & os, const FiniteStateAutomaton & fsa)  {
-    os <<" Name : " << fsa.getName() << std::endl;
-    os <<"States :" ;
-    for(auto state : fsa.getStates())
-    {
-        os << state.getName() << " " ;
+std::ostream &operator<<(std::ostream &os, const FiniteStateAutomaton &fsa) {
+    os << "Name : " << fsa.getName() << std::endl;
+    os << "States :";
+    for (auto state: fsa.getStates()) {
+        os << state.getName() << " ";
     }
     os << std::endl << "Start state : " << fsa.getStartState().getName() << std::endl;
-    os << "Final states : " ;
-    for(auto state : fsa.getFinalState())
-    {
-        os << state.getName() << " " <<std::endl;
+    os << "Final states : ";
+    for (auto state: fsa.getFinalState()) {
+        os << state.getName() << " " << std::endl;
     }
     os << std::endl << "Transitions :" << std::endl;
-    for( auto transition : fsa.getTransitionTable().getTransitions()){
+    for (auto transition: fsa.getTransitionTable().getTransitions()) {
         os << transition << std::endl;
     }
+
     return os;
 }
 
@@ -90,22 +89,21 @@ FiniteStateAutomaton FiniteStateAutomaton::getSimpleFSA() {
     // add transitions to transition table
 
     TransitionTable transitionTable;
-    transitionTable.addTransition(Transition(A,B,"epsilon"));
-    transitionTable.addTransition(Transition(B,C,"epsilon"));
-    transitionTable.addTransition(Transition(B,E,"epsilon"));
-    transitionTable.addTransition(Transition(A,H,"epsilon"));
-    transitionTable.addTransition(Transition(C,D,"a"));
-    transitionTable.addTransition(Transition(E,F,"b"));
-    transitionTable.addTransition(Transition(D,G,"epsilon"));
-    transitionTable.addTransition(Transition(F,G,"epsilon"));
-    transitionTable.addTransition(Transition(G,B,"epsilon"));
-    transitionTable.addTransition(Transition(G,H,"epsilon"));
-    transitionTable.addTransition(Transition(H,I,"a"));
-    transitionTable.addTransition(Transition(I,J,"b"));
-    transitionTable.addTransition(Transition(J,K,"b"));
+    transitionTable.addTransition(Transition(A, B, "epsilon"));
+    transitionTable.addTransition(Transition(B, C, "epsilon"));
+    transitionTable.addTransition(Transition(B, E, "epsilon"));
+    transitionTable.addTransition(Transition(A, H, "epsilon"));
+    transitionTable.addTransition(Transition(C, D, "a"));
+    transitionTable.addTransition(Transition(E, F, "b"));
+    transitionTable.addTransition(Transition(D, G, "epsilon"));
+    transitionTable.addTransition(Transition(F, G, "epsilon"));
+    transitionTable.addTransition(Transition(G, B, "epsilon"));
+    transitionTable.addTransition(Transition(G, H, "epsilon"));
+    transitionTable.addTransition(Transition(H, I, "a"));
+    transitionTable.addTransition(Transition(I, J, "b"));
+    transitionTable.addTransition(Transition(J, K, "b"));
 
-    FiniteStateAutomaton fsa =  FiniteStateAutomaton(transitionTable, "M");
-    std::cout << fsa.getTransitionTable();
+    FiniteStateAutomaton fsa = FiniteStateAutomaton(transitionTable, "M");
     return fsa;
 
 }

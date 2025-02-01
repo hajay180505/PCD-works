@@ -1,4 +1,4 @@
-/home/ajayh/Downloads/clion-2024.3.2/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/ajayh/Downloads/clion-2024.3.2/bin/ninja/linux/x64/ninja -G Ninja -S "/home/ajayh/Documents/Semester 6/Implimentations-new" -B "/home/ajayh/Documents/Semester 6/Implimentations-new/cmake-build-debug"
+/home/ajayh/Downloads/clion-2024.3.2/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/ajayh/Downloads/clion-2024.3.2/bin/ninja/linux/x64/ninja -G Ninja -S /home/ajayh/Documents/GitHub/PCD-works -B /home/ajayh/Documents/GitHub/PCD-works/cmake-build-debug
 -- Configuring done (0.0s)
 -- Generating done (0.0s)
--- Build files have been written to: /home/ajayh/Documents/Semester 6/Implimentations-new/cmake-build-debug
+-- Build files have been written to: /home/ajayh/Documents/GitHub/PCD-works/cmake-build-debug

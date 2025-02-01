@@ -1,4 +1,4 @@
-# Install script for directory: /home/ajayh/Documents/Semester 6/Implimentations-new
+# Install script for directory: /home/ajayh/Documents/GitHub/PCD-works
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -57,6 +57,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "/home/ajayh/Documents/Semester 6/Implimentations-new/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/home/ajayh/Documents/GitHub/PCD-works/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
